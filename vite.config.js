@@ -15,5 +15,13 @@ export default defineConfig({
         target: ["es2021", "chrome100", "safari14"],
         minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
         sourcemap: !!process.env.TAURI_DEBUG,
+    },
+    resolve: {
+        alias: [
+            {
+                find: `npm:prism-code-editor/dist/prism.js`,
+                replacement: "NOPE",
+            },
+        ]
     }
 })

@@ -7,10 +7,16 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "pnpm tauri dev"
+    "start": "pnpm tauri dev",
+    
+    "patch": "sh ./patch.sh",
+    "postinstall": "npm run patch"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.2",
     "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "prism-code-editor": "^1.2.2"
   }
 }

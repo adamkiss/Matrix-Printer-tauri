@@ -36,7 +36,18 @@ h1 {
   line-height: 1.1;
 }
 
-#app {
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.container prism-editor {
+  width: 100%;
+}
+
+/* #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -94,4 +105,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

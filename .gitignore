@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Repeat Tauri .gitignore for vscode
+/src-tauri/target/

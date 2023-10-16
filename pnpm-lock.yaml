@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  prism-code-editor:
+    specifier: ^1.2.2
+    version: 1.2.2
+
 devDependencies:
   '@tauri-apps/cli':
     specifier: ^1.5.2
@@ -319,6 +324,10 @@ packages:
       '@tauri-apps/cli-win32-x64-msvc': 1.5.2
     dev: true
 
+  /@types/prismjs@1.26.1:
+    resolution: {integrity: sha512-Q7jDsRbzcNHIQje15CS/piKhu6lMLb9jwjxSfEIi4KcFKXW23GoJMkwQiJ8VObyfx+VmUaDcJxXaWN+cTCjVog==}
+    dev: false
+
   /esbuild@0.18.20:
     resolution: {integrity: sha512-ceqxoedUrcayh7Y7ZX6NdbbDzGROiyVBgC4PriJThBKSVPWnnFHZAkfI1lJT8QFkOwH4qOS2SJkS4wvpGl8BpA==}
     engines: {node: '>=12'}
@@ -375,6 +384,12 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
+
+  /prism-code-editor@1.2.2:
+    resolution: {integrity: sha512-jmVlSNCp40BWauhzjv3GGFmXVaZkXcuVa7G/5RWV+iSPAugYfL1gQlOkXxC+E2gd/Z3/wbQIEr5RC1kyoohqlg==}
+    dependencies:
+      '@types/prismjs': 1.26.1
+    dev: false
 
   /rollup@3.29.4:
     resolution: {integrity: sha512-oWzmBZwvYrU0iJHtDmhsm662rC15FRXmcjCk1xD771dFDx5jJ02ufAQQTn0etB2emNk4J9EZg/yWKpsn9BWGRw==}
