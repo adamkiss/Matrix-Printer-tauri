@@ -1,11 +1,11 @@
 [package]
-name = "app"
+name = "matrix-printer"
 version = "0.1.0"
-description = "A Tauri App"
+description = "Format and print matrices"
 authors = ["you"]
 license = ""
 repository = ""
-default-run = "app"
+default-run = "matrix-printer"
 edition = "2021"
 rust-version = "1.60"
 

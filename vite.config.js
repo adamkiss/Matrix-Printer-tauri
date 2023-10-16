@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
+    root: "./src",
     // prevent obscuring Rust errors
     clearScreen: false,
     // Fixed port for tauri
