@@ -4,7 +4,8 @@
     "beforeBuildCommand": "npm run build",
     "beforeDevCommand": "npm run dev",
     "devPath": "http://localhost:6969/",
-    "distDir": "../dist"
+    "distDir": "../dist",
+    "withGlobalTauri": true
   },
   "package": {
     "productName": "Matrix Printer",
@@ -12,7 +13,24 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": false,
+      "window": {
+        "all": false,
+        "close": false,
+        "hide": false,
+        "show": false,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
+      },
+      "os": {
+        "all": true
+      },
+      "dialog": {
+        "all": true
+      }
     },
     "bundle": {
       "active": true,
@@ -56,12 +74,15 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 800,
         "resizable": true,
         "title": "Matrix Printer",
-        "width": 800,
-        "minWidth": 640,
-        "minHeight": 480
+        "decorations": true,
+        "width": 1200,
+        "minWidth": 800,
+        "minHeight": 600,
+        "hiddenTitle": true,
+        "titleBarStyle": "Overlay"
       }
     ]
   }

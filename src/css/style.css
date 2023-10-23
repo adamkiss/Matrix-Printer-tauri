@@ -1,48 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.invisible-field {
+		@apply py-2 border-t border-almost-black/20 dark:border-almost-white/20;
+		&:first-child {
+			@apply !border-t-0;
+		}
+		&:focus-within {
+			@apply bg-white/40 dark:bg-white/10;
+		}
+		label {
+			@apply text-almost-black dark:text-almost-white;
+		}
+		> label, > input[type="text"], > textarea {
+      @apply block p-2 px-4;
+		}
+	}
+	input[type="text"], textarea {
+		border: none;
+		background: none;
+		color: inherit;
+		width: 100%;
+		@apply focus:outline-none
+	}
+	.grid-output {
+		grid-template-columns: 200px 1fr;
+		grid-template-rows: minmax(40px, auto) minmax(40px, auto) 1fr;
+	}
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --ui-theme-background: 34 58% 92%; /** BRIDE **/
+  --ui-theme-foreground: 236 40% 15%; /** PURPLISH **/
+  --ui-theme-border: 236 40% 15%; /** PURPLISH **/
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.container > * + * {
-  margin-top: 2rem;
+  @media screen and (prefers-color-scheme: dark) {
+    --ui-theme-background: 236 40% 15%; /** PURPLISH **/
+    --ui-theme-foreground: 34 58% 92%; /** BRIDE **/
+    --ui-theme-border: 34 58% 92%; /** BRIDE **/
+  }
 }

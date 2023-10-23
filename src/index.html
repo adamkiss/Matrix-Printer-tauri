@@ -1,18 +1,86 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./svg/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Matrix Printer</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Editor</h1>
-      <div class="tsv-editor prism-editor"></div>
-      <div class="tpl-editor prism-editor"></div>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="./svg/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Matrix Printer</title>
+	</head>
+	<body class="bg-ui-bg text-ui-fg" x-data="App()" x-bind="root" x-tabs x-model="activeTab">
+		<main class="relative flex flex-col min-h-screen pt-12">
+			<div x-bind="titlebar" data-tauri-drag-region
+				class="fixed z-30 top-0 inset-x-0 flex backdrop-blur-sm dark:bg-black/40 border-b border-b-ui-bd/20 border-opacity-20"
+				:style="`padding-left: ${titlebarPadLeft}px; padding-right: ${titlebarPadRight}px;`"
+			>
+				<div x-tabs:list class="pt-2 flex text-sm select-none -mb-px">
+					<button x-tabs:tab
+						class="bg-ui-bg px-3 py-1 border border-ui-bd/10"
+						:class="$tab.isSelected ? '!border-b-0' : 'bg-black/20 opacity-60'"
+					>Input</button>
+					<button x-tabs:tab
+						class="bg-ui-bg px-3 py-1 border	border-l-0 border-ui-bd/10"
+						:class="$tab.isSelected ? '!border-b-0' : 'bg-black/20 opacity-60'"
+					>Filters</button>
+					<button x-tabs:tab
+						class="bg-ui-bg px-3 py-1 border	border-l-0 border-ui-bd/10"
+						:class="$tab.isSelected ? '!border-b-0' : 'bg-black/20 opacity-60'"
+					>Output</button>
+				</div>
+				<div class="flex-grow flex justify-end p-2" data-tauri-drag-region>
+					<div class="bg-red-700 rounded px-2 text-sm" x-show="hasError" x-html="firstError"></div>
+				</div>
+			</div>
+			<div x-tabs:panels class="flex-grow grid content-stretch overflow-y-scroll">
+				<div x-tabs:panel>
+					<div
+						x-data="PrismEditor()"
+						x-model="input" x-modelable="value"
+						x-on:click="focusTextarea"
+					></div>
+				</div>
+				<div x-tabs:panel>
+					<div
+						x-data="PrismEditor({language: 'javascript'})"
+						x-model="filtersRaw" x-modelable="value"
+						x-on:click="focusTextarea"
+					></div>
+				</div>
+				<div x-tabs:panel>
+					<div class="grid grid-output h-screen">
+						<div>
+							ALL KEY
+							<input type="text" x-model="allKey">
+						</div>
+						<div class="row-start-2">
+							GROUP BY
+							<input type="text" x-model="groupBy">
+						</div>
+						<div class="col-start-2 row-span-2">
+							<label for="">TEMPLATE <span class="monospace text-xs opacity-80" x-html="available"></span></label>
+							<div
+								x-data="PrismEditor({language: 'liquid'})"
+								x-model="template" x-modelable="value"
+								x-on:click="focusTextarea"
+							></div>
+						</div>
+						<div class="row-start-3 col-span-full overflow-y-scroll border-t border-ui-bd/30">
+							<div x-show="! hasError" class="h-full flex flex-col">
+								<label for="result" class="self-start">Output</label>
+								<textarea id="result" x-model="result" readonly class="flex-grow"></textarea>
+							</div>
+							<div x-show="hasError" class="h-full bg-red-900">
+								ERRORS
+								<ul>
+								<template x-for="error of allErrors">
+									<li x-html="error"></li>
+								</template>
+								</ul>
+							</div>
+						</div>
+				</div>
+			</div>
+		</main>
 
-    <script type="module" src="./js/app.js"></script>
-  </body>
+		<script type="module" src="./index.js" defer></script>
+	</body>
 </html>
