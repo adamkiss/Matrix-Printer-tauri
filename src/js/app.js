@@ -1,6 +1,5 @@
 import {parse} from 'papaparse'
 import {Liquid} from 'liquidjs'
-import groupBy from 'lodash.groupby'
 
 import { os, window as appWindow } from '@tauri-apps/api'
 

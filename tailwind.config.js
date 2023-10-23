@@ -4,7 +4,7 @@ import defaultConfig from "tailwindcss/defaultConfig";
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    './src/**/*.html',
+    './**/*.html',
     './src/**/*.js',
   ],
   theme: {

@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "pnpm tauri dev",
+    "prod": "pnpm tauri build",
     "patch": "sh ./patch.sh",
     "postinstall": "npm run patch"
   },
@@ -23,10 +24,9 @@
   "dependencies": {
     "@alpinejs/focus": "^3.13.2",
     "@alpinejs/ui": "3.13.1-beta.0",
-    "@calumk/codecup": "^1.5.0",
     "alpinejs": "^3.13.1",
+    "cssnano": "^6.0.1",
     "liquidjs": "^10.9.3",
-    "lodash.groupby": "^4.6.0",
     "papaparse": "^5.4.1",
     "prism-code-editor": "^1.2.2",
     "prismjs": "^1.29.0",
